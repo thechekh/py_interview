@@ -1,0 +1,26 @@
+#install postgresql
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+
+sudo systemctl status postgresql
+sudo systemctl start postgresql
+
+#start automatically when the system boots
+sudo systemctl enable postgresql
+
+#check version
+psql --version
+
+sudo -i -u postgres
+psql
+
+#create database and user
+CREATE DATABASE bookstore;
+CREATE USER bookuser WITH PASSWORD '****' SUPERUSER;
+CREATE USER flask_api_user WITH PASSWORD '****' SUPERUSER;
+
+
+#alembic
+alembic init migrations
+alembic revision --autogenerate -m "Initial migration"
+alembic upgrade head

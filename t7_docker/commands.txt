@@ -1,0 +1,9 @@
+docker stop $(docker ps -q)         # Stop all running containers
+docker rm $(docker ps -aq)           # Remove all containers (running and stopped)
+docker rmi $(docker images -q)       # Remove all images
+docker volume prune                  # Optionally, remove unused volumes
+docker network prune                 # Optionally, remove unused networks
+docker-compose up -d --build         # Rebuild and start containers
+
+
+sudo docker stop $(sudo docker ps -q) && sudo docker rm $(sudo docker ps -aq) && sudo docker rmi $(sudo docker images -q)
